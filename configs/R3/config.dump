@@ -1,0 +1,14 @@
+!
+hostname R3
+!
+interface FastEthernet0/0
+ description Link to Switch1
+ ip address 192.168.2.1 255.255.255.0
+ bandwidth 100000
+!
+interface FastEthernet1/0
+ description Link to R1 (Primary)
+ ip address 10.1.1.2 255.255.255.252
+ bandwidth 100000
+ mtu 1400
+!
