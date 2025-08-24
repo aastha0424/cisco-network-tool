@@ -1,40 +1,108 @@
-Cisco Network Analysis and Simulation Tool
-This project is a Python-based tool developed for the Cisco Networking Academy's Virtual Internship Program 2025. It automatically generates, validates, analyzes, and simulates a network topology from raw router configuration files.
+---
 
-✨ Core Features
-Automatic Topology Generation: Constructs a network graph from a directory of router configuration files.
+# Cisco Network Analysis and Simulation Tool
 
-Configuration Validation: Detects critical network errors like duplicate IPs, MTU mismatches, and incorrect default gateways.
+A Python-based tool developed for the **Cisco Networking Academy Virtual Internship Program 2025**. This tool automatically generates, validates, analyzes, and simulates a network topology from raw router configuration files.
 
-Performance Analysis: Checks if network links can handle predefined traffic loads.
+---
 
-Dynamic Network Simulation: Runs a stable, multithreaded simulation of the network with features like:
+## ✨ Core Features
 
-OSPF-like neighbor discovery.
+1. **Automatic Topology Generation**
 
-Interactive command-line control (ping, pause, resume).
+   * Constructs a network graph from a directory of router configuration files.
 
-Real-time link failure simulation (fail link).
+2. **Configuration Validation**
 
-Dynamic routing updates based on link status.
+   * Detects critical network errors such as duplicate IPs, MTU mismatches, and incorrect default gateways.
 
-🚀 Getting Started
-Follow these steps to get the project running on your local machine.
+3. **Performance Analysis**
 
-Prerequisites
-Python 3.x
+   * Verifies if network links can handle predefined traffic loads.
 
-pip (Python package installer)
+4. **Dynamic Network Simulation**
 
-Installation
-Clone the repository:
+   * Runs a stable, multithreaded network simulation with:
 
+     * OSPF-like neighbor discovery
+     * Interactive command-line controls (`ping`, `pause`, `resume`)
+     * Real-time link failure simulation (`fail link`)
+     * Dynamic routing updates based on link status
+
+---
+
+## 🚀 Getting Started
+
+Follow these steps to set up the project locally.
+
+### Prerequisites
+
+* Python 3.x
+* `pip` (Python package installer)
+
+### Installation
+
+```bash
+# Clone the repository
 git clone https://github.com/aastha0424/cisco-network-tool.git
 cd cisco-network-tool
 
-Install dependencies:
-
+# Install required dependencies
 pip install -r requirements.txt
+```
 
-Populate Configurations:
-Make sure your configs/ directory is populated with router configuration files (e.g., configs/R1/config.dump).
+### Configuration Files
+
+Populate the `configs/` directory with your router configuration files, for example:
+
+```
+configs/
+├── R1/
+│   └── config.dump
+├── R2/
+│   └── config.dump
+...
+```
+
+---
+
+## 💻 Usage
+
+Run the main simulator script:
+
+```bash
+python src/simulator/main.py
+```
+
+Available interactive commands during simulation:
+
+* `ping <source> <destination>` – Test connectivity between routers
+* `pause` – Pause the simulation
+* `resume` – Resume the simulation
+* `fail link <router1> <router2>` – Simulate a link failure
+
+---
+
+## 🛠️ Project Structure
+
+```
+cisco-network-tool/
+├── configs/          # Router configuration files
+├── src/
+│   ├── parser.py      # Parses router configs
+│   ├── topology.py    # Builds network graph
+│   ├── validator.py   # Validates network configs
+│   ├── analyzer.py    # Performs performance analysis
+│   └── simulator/     # Network simulation scripts
+├── requirements.txt
+└── README.md
+```
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
